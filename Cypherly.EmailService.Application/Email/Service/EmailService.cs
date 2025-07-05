@@ -1,15 +1,25 @@
-﻿using Cypherly.EmailService.Application.Email.Smtp;
+﻿using System.Net.Mail;
+using Cypherly.EmailService.Application.Email.Smtp;
+using Cypherly.EmailService.Application.Settings;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace Cypherly.EmailService.Application.Email.Service;
 
 public sealed class EmailService(
     ISmtpClient smtpClient,
-    ILogger<EmailService> logger
-    ) : IEmailService
+    IOptions<EmailSettings> emailSettings,
+    ILogger<EmailService> logger)
+    : IEmailService
 {
-    public Task SendEmailAsync(string to, string subject, string body)
+    public async Task SendEmailAsync(string to, string subject, string body)
     {
-        throw new NotImplementedException();
+        var mailMessage = new MailMessage(emailSettings.Value.FromAddress, to, subject, body)
+        {
+            IsBodyHtml = true
+        };
+
+        logger.LogInformation("Sending email to {To} with subject {Subject}", to, subject);
+        await smtpClient.Send(mailMessage);
     }
 }

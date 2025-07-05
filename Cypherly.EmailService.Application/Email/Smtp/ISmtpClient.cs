@@ -4,5 +4,5 @@ namespace Cypherly.EmailService.Application.Email.Smtp;
 
 public interface ISmtpClient
 {
-    Task SendEmailAsync(MailMessage email);
+    Task Send(MailMessage email);
 }

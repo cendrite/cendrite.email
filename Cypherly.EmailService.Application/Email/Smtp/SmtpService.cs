@@ -21,7 +21,7 @@ public sealed class SmtpService : ISmtpClient
         };
     }
 
-    public Task SendEmailAsync(MailMessage email)
+    public Task Send(MailMessage email)
     {
         throw new NotImplementedException();
     }

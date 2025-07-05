@@ -26,7 +26,7 @@ try
         {
             services.ConfigureOptions(configuration);
             services.AddMassTransitWithRabbitMq(Assembly.GetExecutingAssembly());
-
+            services.AddEmailServices();
         })
         .Build();
 }

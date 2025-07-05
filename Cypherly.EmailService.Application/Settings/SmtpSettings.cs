@@ -6,6 +6,5 @@ public sealed class SmtpSettings
     public int Port { get; set; }
     public required string Username { get; set; }
     public required string Password { get; set; }
-    public required string FromAddress { get; set; }
     public bool UseSsl { get; set; } = true;
 }
