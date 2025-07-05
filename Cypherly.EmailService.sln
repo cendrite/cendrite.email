@@ -5,6 +5,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{E64A2FE4-3E6D-40CF-B422-C583FF82ABF1}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		dotnet-test.yml = dotnet-test.yml
+		build-images.yml = build-images.yml
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E442FD32-9AB0-45D0-A585-DB6231DFBD52}"
