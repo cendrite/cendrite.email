@@ -1,7 +1,7 @@
 ﻿using MassTransit;
 using Microsoft.Extensions.Logging;
 
-namespace Cypherly.EmailService.Application.Messaging;
+namespace Cypherly.EmailService.Application.Messaging.Producer;
 
 public class Producer<TMessage>(
     IPublishEndpoint publishEndpoint,

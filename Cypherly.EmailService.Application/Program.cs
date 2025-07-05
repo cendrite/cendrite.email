@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using Cypherly.EmailService.Application.Extensions;
+using Cypherly.EmailService.Application.Messaging;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,7 +25,7 @@ try
         .UseSerilog()
         .ConfigureServices((_, services) =>
         {
-            services.ConfigureOptions(configuration);
+            services.SetupOptions(configuration);
             services.AddMassTransitWithRabbitMq(Assembly.GetExecutingAssembly());
             services.AddEmailServices();
         })
@@ -38,3 +39,6 @@ finally
 {
     Log.CloseAndFlush();
 }
+
+
+public partial class Program {}

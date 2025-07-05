@@ -1,4 +1,6 @@
 ﻿using System.Reflection;
+using Cypherly.EmailService.Application.Messaging;
+using Cypherly.EmailService.Application.Messaging.Producer;
 using Cypherly.EmailService.Application.Settings;
 using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
@@ -43,6 +45,22 @@ public static class MassTransitConfiguration
             });
         });
 
+        services.AddProducer<EmailOperationSuccededMessage>();
+
         return services;
     }
+
+    /// <summary>
+    /// Add a <see cref="Producer{TMessage}"/> for a specific message type to the service collection
+    /// </summary>
+    /// <param name="services">the collection producer will be added to</param>
+    /// <typeparam name="TMessage">the type the producer will handle. TMessage type should be of type <see cref="IBaseMessage"/></typeparam>
+    /// <returns><see cref="IServiceCollection"/></returns>
+    private static IServiceCollection AddProducer<TMessage>(this IServiceCollection services)
+        where TMessage : IBaseMessage
+    {
+        services.AddScoped<IProducer<TMessage>, Producer<TMessage>>();
+        return services;
+    }
+
 }

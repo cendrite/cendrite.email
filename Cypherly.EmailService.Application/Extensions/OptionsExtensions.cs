@@ -6,10 +6,11 @@ namespace Cypherly.EmailService.Application.Extensions;
 
 public static class OptionsExtensions
 {
-    public static void ConfigureOptions(IServiceCollection services, IConfiguration configuration)
+    public static void SetupOptions(this IServiceCollection services, IConfiguration configuration)
     {
-        services.ConfigureOption<RabbitMqSettings>(configuration, "RabbitMq");
         services.ConfigureOption<SmtpSettings>(configuration, "Smtp");
+        services.ConfigureOption<RabbitMqSettings>(configuration, "RabbitMq");
+        services.ConfigureOption<EmailSettings>(configuration, "Email");
     }
 
     private static void ConfigureOption<T>(this IServiceCollection services, IConfiguration configuration, string sectionName) where T : class

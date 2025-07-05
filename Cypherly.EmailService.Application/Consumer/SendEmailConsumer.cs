@@ -1,5 +1,7 @@
 ﻿using Cypherly.EmailService.Application.Email.Service;
 using Cypherly.EmailService.Application.Messaging;
+using Cypherly.EmailService.Application.Messaging.Messages;
+using Cypherly.EmailService.Application.Messaging.Producer;
 using MassTransit;
 using Microsoft.Extensions.Logging;
 

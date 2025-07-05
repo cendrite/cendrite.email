@@ -1,4 +1,4 @@
-﻿namespace Cypherly.EmailService.Application.Messaging;
+﻿namespace Cypherly.EmailService.Application.Messaging.Producer;
 
 public interface IProducer<in TMessage> where TMessage : IBaseMessage
 {

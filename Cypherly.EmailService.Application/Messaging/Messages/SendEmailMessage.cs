@@ -1,6 +1,4 @@
-﻿using Cypherly.EmailService.Application.Messaging;
-
-namespace Cypherly.EmailService.Application.Consumer;
+﻿namespace Cypherly.EmailService.Application.Messaging.Messages;
 
 public sealed record SendEmailMessage : IBaseMessage
 {

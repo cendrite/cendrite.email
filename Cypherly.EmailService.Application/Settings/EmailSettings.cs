@@ -2,5 +2,5 @@
 
 public sealed class EmailSettings
 {
-    public required string FromAddress { get; set; }
+    public required string FromAddress { get; init; }
 }
