@@ -1,12 +1,9 @@
-﻿using Cypherly.EmailService.Application.Consumer;
+﻿using Cypherly.EmailService.API.Consumer;
+using Cypherly.EmailService.API.Messaging.Messages;
+using Cypherly.EmailService.API.Messaging.Producer;
 using Cypherly.EmailService.Application.Email.Service;
-using Cypherly.EmailService.Application.Messaging;
-using Cypherly.EmailService.Application.Messaging.Messages;
-using Cypherly.EmailService.Application.Messaging.Producer;
 using Cypherly.EmailService.Test.Integration.Setup;
-using FakeItEasy;
 using FluentAssertions;
-using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
@@ -15,7 +12,7 @@ namespace Cypherly.EmailService.Test.Integration.ConsumerTest;
 public class SendEmailMessageConsumerTest : IntegrationTestBase
 {
     private readonly SendEmailConsumer _sut;
-    public SendEmailMessageConsumerTest(HostedIntegrationTestService factory) : base(factory)
+    public SendEmailMessageConsumerTest(IntegrationTestFactory<Program> factory) : base(factory)
     {
         var scope = factory.Services.CreateScope();
         var logger = scope.ServiceProvider.GetRequiredService<ILogger<SendEmailConsumer>>();

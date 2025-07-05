@@ -28,5 +28,5 @@ jobs:
         run: |
           docker buildx build --platform linux/amd64 \
             -t ${{ secrets.DOCKER_USERNAME }}/dev-cypherly.email.svc-api:latest \
-            -f Cypherly.EmailService.Application/Dockerfile . \
+            -f Cypherly.EmailService.API/Dockerfile . \
             --push
