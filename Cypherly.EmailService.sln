@@ -1,7 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cypherly.EmailService.Application", "Cypherly.EmailService.Application\Cypherly.EmailService.Application.csproj", "{A40247BA-DE8E-4B3A-ADC7-190234866CED}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{E64A2FE4-3E6D-40CF-B422-C583FF82ABF1}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
@@ -16,23 +14,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{83C9F56A-4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cypherly.EmailService.Test.Integration", "Cypherly.EmailService.Test.Integration\Cypherly.EmailService.Test.Integration.csproj", "{DEE75545-0291-451F-9773-337E4AE8A665}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cypherly.EmailService.API", "Cypherly.EmailService.API\Cypherly.EmailService.API.csproj", "{C2B8996D-067C-4FB4-B0E4-1F25A41BDC02}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A40247BA-DE8E-4B3A-ADC7-190234866CED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A40247BA-DE8E-4B3A-ADC7-190234866CED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A40247BA-DE8E-4B3A-ADC7-190234866CED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A40247BA-DE8E-4B3A-ADC7-190234866CED}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DEE75545-0291-451F-9773-337E4AE8A665}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DEE75545-0291-451F-9773-337E4AE8A665}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEE75545-0291-451F-9773-337E4AE8A665}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEE75545-0291-451F-9773-337E4AE8A665}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2B8996D-067C-4FB4-B0E4-1F25A41BDC02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2B8996D-067C-4FB4-B0E4-1F25A41BDC02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2B8996D-067C-4FB4-B0E4-1F25A41BDC02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2B8996D-067C-4FB4-B0E4-1F25A41BDC02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{A40247BA-DE8E-4B3A-ADC7-190234866CED} = {E442FD32-9AB0-45D0-A585-DB6231DFBD52}
 		{DEE75545-0291-451F-9773-337E4AE8A665} = {83C9F56A-492E-4F99-8967-01F79E69B6F3}
+		{C2B8996D-067C-4FB4-B0E4-1F25A41BDC02} = {E442FD32-9AB0-45D0-A585-DB6231DFBD52}
 	EndGlobalSection
 EndGlobal
