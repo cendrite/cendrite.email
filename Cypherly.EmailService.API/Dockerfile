@@ -12,8 +12,9 @@ WORKDIR /src
 
 COPY nuget.config ./nuget.config
 RUN sed -i "s|%NUGET_TOKEN%|${NUGET_TOKEN}|g" nuget.config
-RUN dotnet restore "Cypherly.EmailService.API/Cypherly.EmailService.API.csproj" --configfile ./nuget.config
 
+COPY ["Cypherly.EmailService.API/Cypherly.EmailService.API.csproj", "Cypherly.EmailService.API/"]
+RUN dotnet restore "Cypherly.EmailService.API/Cypherly.EmailService.API.csproj" --configfile ./nuget.config
 
 COPY . .
 
@@ -22,7 +23,6 @@ RUN dotnet build "./Cypherly.EmailService.API.csproj" -c $BUILD_CONFIGURATION -o
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-WORKDIR "/src/Cypherly.EmailService.API"
 RUN dotnet publish "./Cypherly.EmailService.API.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
