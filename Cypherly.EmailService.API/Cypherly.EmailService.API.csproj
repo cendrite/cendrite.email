@@ -8,7 +8,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="cypherly.message.contracts" Version="1.0.0" />
         <PackageReference Include="MassTransit.RabbitMQ" Version="8.5.0" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.6"/>
         <PackageReference Include="OpenTelemetry" Version="1.12.0" />
@@ -33,6 +32,10 @@
       <Content Include="..\.dockerignore">
         <Link>.dockerignore</Link>
       </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Cypherly.Common.Messaging\Cypherly.Common.Messaging.csproj" />
     </ItemGroup>
 
 </Project>

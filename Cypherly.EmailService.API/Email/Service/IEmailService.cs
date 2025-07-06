@@ -1,4 +1,4 @@
-﻿namespace Cypherly.EmailService.Application.Email.Service;
+﻿namespace Cypherly.EmailService.API.Email.Service;
 
 public interface IEmailService
 {

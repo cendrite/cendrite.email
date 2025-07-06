@@ -1,6 +1,5 @@
 ﻿using System.Net.Mail;
 using Cypherly.EmailService.API.Settings;
-using Cypherly.EmailService.Application.Email.Service;
 using Cypherly.EmailService.Application.Email.Smtp;
 using Microsoft.Extensions.Options;
 

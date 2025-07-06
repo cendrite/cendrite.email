@@ -1,4 +1,4 @@
-﻿using Cypherly.EmailService.Application.Email.Service;
+﻿using Cypherly.EmailService.API.Email.Service;
 using Cypherly.EmailService.Application.Email.Smtp;
 
 namespace Cypherly.EmailService.API.Extensions;

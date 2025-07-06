@@ -1,14 +1,14 @@
-﻿using Cypherly.EmailService.API.Messaging.Messages;
-using Cypherly.EmailService.Application.Email.Service;
-using Cypherly.Message.Contracts.Abstractions;
-using Cypherly.Message.Contracts.Messages;
+﻿using Cypherly.Common.Messaging.Enums;
+using Cypherly.Common.Messaging.Messages.PublishMessages;
+using Cypherly.Common.Messaging.Messages.PublishMessages.Email;
+using Cypherly.EmailService.API.Email.Service;
 using MassTransit;
 
 namespace Cypherly.EmailService.API.Consumer;
 
 public class SendEmailConsumer(
     IEmailService emailService,
-    IProducer<EmailOperationSuccededMessage> operationSuccededProducer,
+    IProducer<OperationSuccededMessage> operationSuccededProducer,
     ILogger<SendEmailConsumer> logger)
     : IConsumer<SendEmailMessage>
 {
@@ -23,12 +23,10 @@ public class SendEmailConsumer(
                 message.Subject);
 
             await emailService.SendEmailAsync(message.To, message.Subject, message.Body);
-
-            await operationSuccededProducer.PublishMessageAsync(new EmailOperationSuccededMessage
-            {
-                CorrelationId = message.CorrelationId,
-                CausationId = message.CausationId,
-            });
+            await operationSuccededProducer.PublishMessageAsync(new OperationSuccededMessage(
+                OperationType.SendEmail,
+                message.CorrelationId,
+                message.Id));
         }
         catch (Exception e)
         {

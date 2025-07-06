@@ -1,10 +1,8 @@
-﻿using Cypherly.EmailService.API.Consumer;
-using Cypherly.EmailService.API.Messaging.Messages;
-using Cypherly.EmailService.API.Messaging.Producer;
-using Cypherly.EmailService.Application.Email.Service;
+﻿using Cypherly.Common.Messaging.Messages.PublishMessages;
+using Cypherly.Common.Messaging.Messages.PublishMessages.Email;
+using Cypherly.EmailService.API.Consumer;
+using Cypherly.EmailService.API.Email.Service;
 using Cypherly.EmailService.Test.Integration.Setup;
-using Cypherly.Message.Contracts.Abstractions;
-using Cypherly.Message.Contracts.Messages;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -19,7 +17,7 @@ public class SendEmailMessageConsumerTest : IntegrationTestBase
         var scope = factory.Services.CreateScope();
         var logger = scope.ServiceProvider.GetRequiredService<ILogger<SendEmailConsumer>>();
         var emailService = scope.ServiceProvider.GetRequiredService<IEmailService>();
-        var producer = scope.ServiceProvider.GetRequiredService<IProducer<EmailOperationSuccededMessage>>();
+        var producer = scope.ServiceProvider.GetRequiredService<IProducer<OperationSuccededMessage>>();
         _sut = new(emailService, producer, logger);
     }
 
@@ -27,16 +25,7 @@ public class SendEmailMessageConsumerTest : IntegrationTestBase
     public async Task Given_PublishedMessage_Should_Consume_And_SendEmail()
     {
         // Arrange
-        var msg = new SendEmailMessage
-        {
-            Body = "This is a test email.",
-            CorrelationId = Guid.NewGuid(),
-            CausationId = null,
-            Id = Guid.NewGuid(),
-            OccurredOn = DateTime.UtcNow,
-            Subject = "Test Email",
-            To = "Test@user.dk",
-        };
+        var msg = new SendEmailMessage("test@mail.dk", "Test subject", "Test body", Guid.NewGuid());
 
         // Act
         await Harness.Bus.Publish(msg);
@@ -47,6 +36,6 @@ public class SendEmailMessageConsumerTest : IntegrationTestBase
         email.Should().NotBeNull();
         var emailItem = email!.Items.FirstOrDefault();
         emailItem!.From.Domain.Should().Be("email.dk");
-        emailItem.To.FirstOrDefault()!.Domain.Should().Be("user.dk");
+        emailItem.To.FirstOrDefault()!.Domain.Should().Be("mail.dk");
     }
 }
