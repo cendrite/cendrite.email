@@ -6,6 +6,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		README.md = README.md
 		.github\workflows\build-images.yml = .github\workflows\build-images.yml
 		.github\workflows\dotnet-test.yml = .github\workflows\dotnet-test.yml
+		nuget.config = nuget.config
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E442FD32-9AB0-45D0-A585-DB6231DFBD52}"
