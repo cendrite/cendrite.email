@@ -24,7 +24,7 @@ jobs:
       - name: Build and Push Docker Image for Cypherly.EmailService.API
         run: |
           docker buildx build --platform linux/amd64 \
-            --build-arg NUGET_TOKEN=${{ secrets.NUGET_TOKEN }} \
+            --secret id=nuget_token,env=NUGET_TOKEN \
             -t ${{ secrets.DOCKER_USERNAME }}/dev-cypherly.email.svc-api:latest \
             -f Cypherly.EmailService.API/Dockerfile . \
             --push
