@@ -40,11 +40,7 @@ public static class MassTransitConfiguration
                     cb.ResetInterval = TimeSpan.FromMinutes(5);
                 });
 
-                cfg.ReceiveEndpoint("email-service-queue", e =>
-                    {
-                        e.ConfigureConsumer<SendEmailConsumer>(context);
-                        e.Bind("Cypherly.Common.Messaging.Messages.PublishMessages.Email:SendEmailMessage", s => s.ExchangeType = "fanout");
-                    });
+                cfg.ConfigureEndpoints(context);
             });
         });
 
