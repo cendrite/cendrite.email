@@ -11,10 +11,10 @@ ARG NUGET_TOKEN
 WORKDIR /src
 
 COPY NuGet.config ./
-RUN sed -i "s|%NUGET_TOKEN%|${NUGET_TOKEN}|g" nuget.config
+RUN sed -i "s|%NUGET_TOKEN%|${NUGET_TOKEN}|g" nuget
 
 COPY ["Cypherly.EmailService.API/Cypherly.EmailService.API.csproj", "Cypherly.EmailService.API/"]
-RUN dotnet restore "Cypherly.EmailService.API/Cypherly.EmailService.API.csproj" --configfile ./NuGet.config
+RUN dotnet restore "Cypherly.EmailService.API/Cypherly.EmailService.API.csproj" --configfile ./nuget
 
 COPY . .
 
