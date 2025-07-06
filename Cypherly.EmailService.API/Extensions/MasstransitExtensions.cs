@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using Cypherly.EmailService.API.Consumer;
 using Cypherly.EmailService.API.Messaging.Messages;
 using Cypherly.EmailService.API.Messaging.Producer;
 using Cypherly.EmailService.API.Settings;
@@ -39,8 +40,11 @@ public static class MassTransitConfiguration
                     cb.ResetInterval = TimeSpan.FromMinutes(5);
                 });
 
-
-                cfg.ConfigureEndpoints(context);
+                cfg.ReceiveEndpoint("email-service-queue", e =>
+                    {
+                        e.ConfigureConsumer<SendEmailConsumer>(context);
+                        e.Bind("Cypherly.Common.Messaging.Messages.PublishMessages.Email:SendEmailMessage", s => s.ExchangeType = "fanout");
+                    });
             });
         });
 
@@ -55,11 +59,10 @@ public static class MassTransitConfiguration
     /// <param name="services">the collection producer will be added to</param>
     /// <typeparam name="TMessage">the type the producer will handle. TMessage type should be of type <see cref="IBaseMessage"/></typeparam>
     /// <returns><see cref="IServiceCollection"/></returns>
-    private static IServiceCollection AddProducer<TMessage>(this IServiceCollection services)
+    private static void AddProducer<TMessage>(this IServiceCollection services)
         where TMessage : IBaseMessage
     {
         services.AddScoped<IProducer<TMessage>, Producer<TMessage>>();
-        return services;
     }
 
 }
