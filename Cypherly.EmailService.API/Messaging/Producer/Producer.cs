@@ -1,4 +1,4 @@
-﻿using Cypherly.EmailService.API.Messaging.Messages;
+﻿using Cypherly.Message.Contracts.Abstractions;
 using MassTransit;
 
 namespace Cypherly.EmailService.API.Messaging.Producer;

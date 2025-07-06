@@ -1,4 +1,6 @@
 ﻿
+using Cypherly.Message.Contracts.Abstractions;
+
 namespace Cypherly.EmailService.API.Messaging.Messages;
 
 public sealed class EmailOperationSuccededMessage : IBaseMessage

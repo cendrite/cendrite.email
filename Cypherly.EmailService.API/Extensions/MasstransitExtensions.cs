@@ -2,6 +2,7 @@
 using Cypherly.EmailService.API.Messaging.Messages;
 using Cypherly.EmailService.API.Messaging.Producer;
 using Cypherly.EmailService.API.Settings;
+using Cypherly.Message.Contracts.Abstractions;
 using MassTransit;
 using Microsoft.Extensions.Options;
 

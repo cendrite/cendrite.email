@@ -3,6 +3,8 @@ using Cypherly.EmailService.API.Messaging.Messages;
 using Cypherly.EmailService.API.Messaging.Producer;
 using Cypherly.EmailService.Application.Email.Service;
 using Cypherly.EmailService.Test.Integration.Setup;
+using Cypherly.Message.Contracts.Abstractions;
+using Cypherly.Message.Contracts.Messages;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;

@@ -1,6 +1,7 @@
 ﻿using Cypherly.EmailService.API.Messaging.Messages;
-using Cypherly.EmailService.API.Messaging.Producer;
 using Cypherly.EmailService.Application.Email.Service;
+using Cypherly.Message.Contracts.Abstractions;
+using Cypherly.Message.Contracts.Messages;
 using MassTransit;
 
 namespace Cypherly.EmailService.API.Consumer;
