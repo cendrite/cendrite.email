@@ -8,6 +8,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      DOCKER_BUILDKIT: 1
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -21,10 +24,13 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Create NuGet token file
+        run: echo "${{ secrets.NUGET_TOKEN }}" > nuget_token.txt
+
       - name: Build and Push Docker Image for Cypherly.EmailService.API
         run: |
           docker buildx build --platform linux/amd64 \
-            --secret id=nuget_token,env=NUGET_TOKEN \
+            --secret id=nuget_token,src=nuget_token.txt \
             -t ${{ secrets.DOCKER_USERNAME }}/dev-cypherly.email.svc-api:latest \
             -f Cypherly.EmailService.API/Dockerfile . \
             --push
