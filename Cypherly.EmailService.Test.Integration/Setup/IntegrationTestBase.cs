@@ -9,7 +9,7 @@ namespace Cypherly.EmailService.Test.Integration.Setup;
 public class IntegrationTestBase(IntegrationTestFactory<Program> factory) : IDisposable
 {
     protected readonly ITestHarness Harness = factory.Services.GetRequiredService<ITestHarness>();
-    protected readonly MailHogHelper MailHogHelper = new MailHogHelper();
+    protected readonly MailHogHelper MailHogHelper = new();
 
     public void Dispose()
     {

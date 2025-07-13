@@ -1,5 +1,5 @@
 ﻿using Cypherly.EmailService.API.Email.Service;
-using Cypherly.EmailService.Application.Email.Smtp;
+using Cypherly.EmailService.API.Email.Smtp;
 
 namespace Cypherly.EmailService.API.Extensions;
 

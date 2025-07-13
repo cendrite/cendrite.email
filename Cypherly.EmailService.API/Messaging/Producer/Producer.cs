@@ -1,4 +1,4 @@
-﻿using Cypherly.Common.Messaging.Messages.PublishMessages;
+﻿using Cypherly.Message.Contracts.Abstractions;
 using MassTransit;
 
 namespace Cypherly.EmailService.API.Messaging.Producer;
@@ -7,7 +7,7 @@ public class Producer<TMessage>(
     IPublishEndpoint publishEndpoint,
     ILogger<Producer<TMessage>> logger)
     : IProducer<TMessage>
-    where TMessage : BaseMessage
+    where TMessage : IBaseMessage
 {
 
     public async Task PublishMessageAsync(TMessage message, CancellationToken cancellationToken)

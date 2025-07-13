@@ -3,7 +3,7 @@ using System.Net.Mail;
 using Cypherly.EmailService.API.Settings;
 using Microsoft.Extensions.Options;
 
-namespace Cypherly.EmailService.Application.Email.Smtp;
+namespace Cypherly.EmailService.API.Email.Smtp;
 
 public sealed class SmtpService : ISmtpClient
 {

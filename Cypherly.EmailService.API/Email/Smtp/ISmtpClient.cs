@@ -1,6 +1,6 @@
 ﻿using System.Net.Mail;
 
-namespace Cypherly.EmailService.Application.Email.Smtp;
+namespace Cypherly.EmailService.API.Email.Smtp;
 
 public interface ISmtpClient
 {
