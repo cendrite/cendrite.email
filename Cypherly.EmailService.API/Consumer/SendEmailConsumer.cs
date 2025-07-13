@@ -4,7 +4,6 @@ using Cypherly.Message.Contracts.Enums;
 using Cypherly.Message.Contracts.Messages.Common;
 using Cypherly.Message.Contracts.Messages.Email;
 using MassTransit;
-// ReSharper disable HeapView.ObjectAllocation.Evident
 
 namespace Cypherly.EmailService.API.Consumer;
 
