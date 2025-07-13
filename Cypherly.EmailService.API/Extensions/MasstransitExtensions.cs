@@ -1,7 +1,8 @@
 ﻿using System.Reflection;
-using Cypherly.Common.Messaging.Messages.PublishMessages;
 using Cypherly.EmailService.API.Messaging.Producer;
 using Cypherly.EmailService.API.Settings;
+using Cypherly.Message.Contracts.Abstractions;
+using Cypherly.Message.Contracts.Messages.Common;
 using MassTransit;
 using Microsoft.Extensions.Options;
 
@@ -55,7 +56,8 @@ public static class MassTransitConfiguration
     /// <typeparam name="TMessage">the type the producer will handle. TMessage type should be of type <see cref="IBaseMessage"/></typeparam>
     /// <returns><see cref="IServiceCollection"/></returns>
     private static void AddProducer<TMessage>(this IServiceCollection services)
-        where TMessage : BaseMessage
+        where TMessage : IBaseMessage
+
     {
         services.AddScoped<IProducer<TMessage>, Producer<TMessage>>();
     }

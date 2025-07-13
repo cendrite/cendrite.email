@@ -1,8 +1,9 @@
-﻿using Cypherly.Common.Messaging.Messages.PublishMessages;
-using Cypherly.Common.Messaging.Messages.PublishMessages.Email;
-using Cypherly.EmailService.API.Consumer;
+﻿using Cypherly.EmailService.API.Consumer;
 using Cypherly.EmailService.API.Email.Service;
+using Cypherly.EmailService.API.Messaging.Producer;
 using Cypherly.EmailService.Test.Integration.Setup;
+using Cypherly.Message.Contracts.Messages.Common;
+using Cypherly.Message.Contracts.Messages.Email;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -25,10 +26,17 @@ public class SendEmailMessageConsumerTest : IntegrationTestBase
     public async Task Given_PublishedMessage_Should_Consume_And_SendEmail()
     {
         // Arrange
-        var msg = new SendEmailMessage("test@mail.dk", "Test subject", "Test body", Guid.NewGuid());
+        var message = new SendEmailMessage()
+        {
+            Body = "Test",
+            To = "test@mail.dk",
+            Subject = "Test",
+            CorrelationId = Guid.NewGuid(),
+            CausationId = Guid.Empty
+        };
 
         // Act
-        await Harness.Bus.Publish(msg);
+        await Harness.Bus.Publish(message);
 
         // Assert
         (await Harness.Consumed.Any<SendEmailMessage>()).Should().BeTrue("the consumer must process the message before we check MailHog");
