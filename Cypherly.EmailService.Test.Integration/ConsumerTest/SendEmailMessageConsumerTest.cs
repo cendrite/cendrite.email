@@ -1,7 +1,7 @@
 ﻿using Cypherly.EmailService.API.Consumer;
 using Cypherly.EmailService.API.Email.Service;
-using Cypherly.EmailService.API.Messaging.Producer;
 using Cypherly.EmailService.Test.Integration.Setup;
+using Cypherly.Message.Contracts.Abstractions;
 using Cypherly.Message.Contracts.Messages.Common;
 using Cypherly.Message.Contracts.Messages.Email;
 using FluentAssertions;
