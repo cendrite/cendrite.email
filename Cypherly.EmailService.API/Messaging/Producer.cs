@@ -1,7 +1,7 @@
 ﻿using Cypherly.Message.Contracts.Abstractions;
 using MassTransit;
 
-namespace Cypherly.EmailService.API.Messaging.Producer;
+namespace Cypherly.EmailService.API.Messaging;
 
 public class Producer<TMessage>(
     IPublishEndpoint publishEndpoint,

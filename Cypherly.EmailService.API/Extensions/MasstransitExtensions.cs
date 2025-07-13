@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
-using Cypherly.EmailService.API.Messaging.Producer;
+using Cypherly.EmailService.API.Messaging;
 using Cypherly.EmailService.API.Settings;
 using Cypherly.Message.Contracts.Abstractions;
 using Cypherly.Message.Contracts.Messages.Common;
