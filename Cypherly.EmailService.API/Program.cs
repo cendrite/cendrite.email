@@ -31,7 +31,8 @@ builder.Services.AddEmailServices();
 
 var app = builder.Build();
 
-app.Run();
+app.MapPrometheusScrapingEndpoint();
 
+app.Run();
 
 public partial class Program { } // This is required for the application to be recognized as a partial class.
