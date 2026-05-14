@@ -9,14 +9,14 @@
 
     <ItemGroup>
         <PackageReference Include="Cypherly.Message.Contracts" Version="2.3.0" />
-        <PackageReference Include="MassTransit.RabbitMQ" Version="8.5.0" />
-        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.6"/>
-        <PackageReference Include="OpenTelemetry" Version="1.12.0" />
-        <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.12.0" />
-        <PackageReference Include="OpenTelemetry.Exporter.Prometheus.AspNetCore" Version="1.12.0-beta.1" />
-        <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.12.0" />
-        <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.12.0" />
-        <PackageReference Include="OpenTelemetry.Instrumentation.Runtime" Version="1.12.0" />
+        <PackageReference Include="MassTransit.RabbitMQ" Version="8.5.9" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.8" />
+        <PackageReference Include="OpenTelemetry" Version="1.15.3" />
+        <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.15.3" />
+        <PackageReference Include="OpenTelemetry.Exporter.Prometheus.AspNetCore" Version="1.15.3-beta.1" />
+        <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.15.3" />
+        <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.15.2" />
+        <PackageReference Include="OpenTelemetry.Instrumentation.Runtime" Version="1.15.1" />
         <PackageReference Include="Serilog.Extensions.Hosting" Version="9.0.1-dev-02307" />
         <PackageReference Include="Serilog.Settings.Configuration" Version="9.0.1-dev-02317" />
         <PackageReference Include="Serilog.Sinks.Console" Version="6.0.1-dev-00953" />
