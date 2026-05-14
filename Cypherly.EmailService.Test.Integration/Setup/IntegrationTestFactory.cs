@@ -4,7 +4,6 @@ using DotNet.Testcontainers.Containers;
 using MassTransit;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.Extensions.Configuration;
 
 namespace Cypherly.EmailService.Test.Integration.Setup;
 
@@ -35,7 +34,7 @@ public class IntegrationTestFactory<TProgram> : WebApplicationFactory<TProgram>,
         });
     }
 
-    public async Task InitializeAsync()
+    public async ValueTask InitializeAsync()
     {
         await _mailContainer.StartAsync();
     }
