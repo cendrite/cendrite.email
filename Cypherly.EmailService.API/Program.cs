@@ -26,7 +26,7 @@ builder.Services.AddObservability(configuration);
 
 builder.Services.SetupOptions(configuration);
 builder.Services.AddMassTransitWithRabbitMq(Assembly.GetExecutingAssembly());
-builder.Services.AddEmailServices();
+builder.Services.AddEmailServices(configuration);
 
 
 var app = builder.Build();
