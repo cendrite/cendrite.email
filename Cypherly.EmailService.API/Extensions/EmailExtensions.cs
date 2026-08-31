@@ -1,13 +1,19 @@
-﻿using Cypherly.EmailService.API.Email.Service;
-using Cypherly.EmailService.API.Email.Smtp;
+﻿using Cypherly.EmailService.API.Interfaces;
+using Resend;
 
 namespace Cypherly.EmailService.API.Extensions;
 
 public static class EmailExtensions
 {
-    public static void AddEmailServices(this IServiceCollection services)
+    public static void AddEmailServices(this IServiceCollection services, IConfiguration cfg)
     {
-        services.AddScoped<ISmtpClient, SmtpService>();
-        services.AddScoped<IEmailService, Email.Service.EmailService>();
+        services.AddScoped<IEmailService, Services.EmailService>();
+        services.AddHttpClient<ResendClient>();
+        services.Configure<ResendClientOptions>(o =>
+        {
+            o.ApiToken = cfg["RESEND_APITOKEN"] ?? throw new NullReferenceException("Missing Resend API_TOKEN");
+        });
+
+        services.AddTransient<IResend, ResendClient>();
     }
 }

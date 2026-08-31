@@ -12,7 +12,6 @@ public static class MassTransitConfiguration
 {
     public static IServiceCollection AddMassTransitWithRabbitMq(this IServiceCollection services, Assembly assembly)
     {
-
         services.AddMassTransit(x =>
         {
             x.AddConsumers(assembly);

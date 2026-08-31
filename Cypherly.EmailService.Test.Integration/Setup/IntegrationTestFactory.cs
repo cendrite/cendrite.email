@@ -1,22 +1,15 @@
-﻿using Cypherly.EmailService.API.Consumer;
-using DotNet.Testcontainers.Builders;
-using DotNet.Testcontainers.Containers;
+using Cypherly.EmailService.API.Consumer;
+using FakeItEasy;
 using MassTransit;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.Extensions.DependencyInjection;
+using Resend;
 
 namespace Cypherly.EmailService.Test.Integration.Setup;
 
-public class IntegrationTestFactory<TProgram> : WebApplicationFactory<TProgram>, IAsyncLifetime where TProgram : class
+public class IntegrationTestFactory<TProgram> : WebApplicationFactory<TProgram> where TProgram : class
 {
-    private readonly IContainer _mailContainer = new ContainerBuilder()
-        .WithImage("mailhog/mailhog:latest")
-        .WithExposedPort(8025)
-        .WithExposedPort(1025)
-        .WithPortBinding(8025, 8025)
-        .WithPortBinding(1025, 1025)
-        .Build();
-
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
         builder.UseEnvironment("Test");
@@ -31,17 +24,13 @@ public class IntegrationTestFactory<TProgram> : WebApplicationFactory<TProgram>,
             {
                 cfg.AddConsumer<SendEmailConsumer>();
             });
+
+            var resendDescriptor = services.SingleOrDefault(d => d.ServiceType == typeof(IResend));
+
+            if (resendDescriptor is not null)
+                services.Remove(resendDescriptor);
+
+            services.AddSingleton(_ => A.Fake<IResend>());
         });
-    }
-
-    public async ValueTask InitializeAsync()
-    {
-        await _mailContainer.StartAsync();
-    }
-
-    public async new Task DisposeAsync()
-    {
-        await _mailContainer.StopAsync();
-        await _mailContainer.DisposeAsync();
     }
 }
