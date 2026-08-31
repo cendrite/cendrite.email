@@ -1,8 +1,9 @@
-﻿using Cypherly.EmailService.API.Settings;
+﻿using Cypherly.EmailService.API.Interfaces;
+using Cypherly.EmailService.API.Settings;
 using Microsoft.Extensions.Options;
 using Resend;
 
-namespace Cypherly.EmailService.API.Email.Service;
+namespace Cypherly.EmailService.API.Services;
 
 public sealed class EmailService(
     IResend resender,

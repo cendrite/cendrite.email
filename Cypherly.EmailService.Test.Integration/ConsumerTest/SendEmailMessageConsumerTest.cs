@@ -1,5 +1,5 @@
 ﻿using Cypherly.EmailService.API.Consumer;
-using Cypherly.EmailService.API.Email.Service;
+using Cypherly.EmailService.API.Interfaces;
 using Cypherly.EmailService.Test.Integration.Setup;
 using Cypherly.Message.Contracts.Abstractions;
 using Cypherly.Message.Contracts.Messages.Common;

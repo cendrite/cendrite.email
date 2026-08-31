@@ -1,4 +1,4 @@
-﻿using Cypherly.EmailService.API.Email.Service;
+﻿using Cypherly.EmailService.API.Interfaces;
 using Cypherly.Message.Contracts.Abstractions;
 using Cypherly.Message.Contracts.Enums;
 using Cypherly.Message.Contracts.Messages.Common;

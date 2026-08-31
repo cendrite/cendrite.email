@@ -1,6 +1,5 @@
-﻿using Cypherly.EmailService.API.Email.Service;
+﻿using Cypherly.EmailService.API.Interfaces;
 using Resend;
-
 
 namespace Cypherly.EmailService.API.Extensions;
 
@@ -8,7 +7,7 @@ public static class EmailExtensions
 {
     public static void AddEmailServices(this IServiceCollection services, IConfiguration cfg)
     {
-        services.AddScoped<IEmailService, Email.Service.EmailService>();
+        services.AddScoped<IEmailService, Services.EmailService>();
         services.AddHttpClient<ResendClient>();
         services.Configure<ResendClientOptions>(o =>
         {
