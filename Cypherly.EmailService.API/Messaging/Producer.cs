@@ -19,7 +19,7 @@ public class Producer<TMessage>(
         catch (Exception ex)
         {
             logger.LogError(ex, "Error in {Producer} for message with id: {Id}",
-                nameof(Producer<TMessage>),
+                nameof(Producer<>),
                 message.Id);
             throw;
         }

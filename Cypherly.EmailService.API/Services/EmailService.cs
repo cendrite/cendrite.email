@@ -1,24 +1,28 @@
-﻿using System.Net.Mail;
-using Cypherly.EmailService.API.Email.Smtp;
-using Cypherly.EmailService.API.Settings;
+﻿using Cypherly.EmailService.API.Settings;
 using Microsoft.Extensions.Options;
+using Resend;
 
 namespace Cypherly.EmailService.API.Email.Service;
 
 public sealed class EmailService(
-    ISmtpClient smtpClient,
+    IResend resender,
     IOptions<EmailSettings> emailSettings,
     ILogger<EmailService> logger)
     : IEmailService
 {
     public async Task SendEmailAsync(string to, string subject, string body)
     {
-        var mailMessage = new MailMessage(emailSettings.Value.FromAddress, to, subject, body)
+        var message = new EmailMessage
         {
-            IsBodyHtml = true
+            From = emailSettings.Value.FromAddress,
+            To = to,
+            Subject = subject,
+            HtmlBody = body
         };
 
         logger.LogInformation("Sending email to {To} with subject {Subject}", to, subject);
-        await smtpClient.Send(mailMessage);
+
+        await resender.EmailSendAsync(message);
+
     }
 }
