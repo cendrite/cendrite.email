@@ -13,7 +13,7 @@ public static class ObservabilityExtensions
         services.AddOpenTelemetry()
             .ConfigureResource(r => r
                 .AddService(
-                    serviceName: "cypherly.keystore.svc",
+                    serviceName: "cypherly.email.svc",
                     serviceVersion: typeof(Program).Assembly.GetName().Version?.ToString(),
                     serviceInstanceId: Environment.MachineName))
 
