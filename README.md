@@ -1,1 +1,1 @@
-# Cypherly.EmaiService
+# Cendrite.EmaiService

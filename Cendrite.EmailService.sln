@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{E64A2FE4-3E6D-40CF-B422-C583FF82ABF1}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+		.github\workflows\build-images.yml = .github\workflows\build-images.yml
+		.github\workflows\dotnet-test.yml = .github\workflows\dotnet-test.yml
+		nuget.config = nuget.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E442FD32-9AB0-45D0-A585-DB6231DFBD52}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{83C9F56A-492E-4F99-8967-01F79E69B6F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cendrite.EmailService.Test.Integration", "Cendrite.EmailService.Test.Integration\Cendrite.EmailService.Test.Integration.csproj", "{DEE75545-0291-451F-9773-337E4AE8A665}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cendrite.EmailService.API", "Cendrite.EmailService.API\Cendrite.EmailService.API.csproj", "{C2B8996D-067C-4FB4-B0E4-1F25A41BDC02}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DEE75545-0291-451F-9773-337E4AE8A665}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEE75545-0291-451F-9773-337E4AE8A665}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEE75545-0291-451F-9773-337E4AE8A665}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEE75545-0291-451F-9773-337E4AE8A665}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2B8996D-067C-4FB4-B0E4-1F25A41BDC02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2B8996D-067C-4FB4-B0E4-1F25A41BDC02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2B8996D-067C-4FB4-B0E4-1F25A41BDC02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2B8996D-067C-4FB4-B0E4-1F25A41BDC02}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DEE75545-0291-451F-9773-337E4AE8A665} = {83C9F56A-492E-4F99-8967-01F79E69B6F3}
+		{C2B8996D-067C-4FB4-B0E4-1F25A41BDC02} = {E442FD32-9AB0-45D0-A585-DB6231DFBD52}
+	EndGlobalSection
+EndGlobal
