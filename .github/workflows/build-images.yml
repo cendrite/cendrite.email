@@ -27,10 +27,10 @@ jobs:
       - name: Create NuGet token file
         run: echo "${{ secrets.NUGET_TOKEN }}" > nuget_token.txt
 
-      - name: Build and Push Docker Image for Cypherly.EmailService.API
+      - name: Build and Push Docker Image for Cendrite.EmailService.API
         run: |
           docker buildx build --platform linux/amd64 \
             --secret id=nuget_token,src=nuget_token.txt \
-            -t ${{ secrets.DOCKER_USERNAME }}/dev-cypherly.email.svc-api:latest \
-            -f Cypherly.EmailService.API/Dockerfile . \
+            -t ${{ secrets.DOCKER_USERNAME }}/dev-cendrite-email-api:latest \
+            -f Cendrite.EmailService.API/Dockerfile . \
             --push
